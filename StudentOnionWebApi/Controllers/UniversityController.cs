@@ -36,7 +36,7 @@ namespace StudentOnionWebApi.Controllers
             return Ok(result.ToUniversityModel());
         }
 
-        [HttpPost]
+        [HttpPost, Route("Create/{id:int}/Name/{name}")]
         public IHttpActionResult Create(int id, string name)
         {
             _domainUniversity.Create(id, name);
@@ -44,7 +44,7 @@ namespace StudentOnionWebApi.Controllers
             return Ok(_domainUniversity.GetById(id));
         }
 
-        [HttpDelete]
+        [HttpDelete, Route("Delete/{id:int}")]
         public IHttpActionResult Delete(int id)
         {
             _domainUniversity.Delete(id);
