@@ -42,7 +42,6 @@ namespace StudentOnionWebApi.InfrastructureService.Repositories
         {
             _context.Universities.Add(new University()
             {
-                UniversityId = id,
                 NameOfUniversity = name,
                 Students = null
             });
