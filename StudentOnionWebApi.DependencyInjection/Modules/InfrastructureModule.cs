@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Practices.Unity;
 using StudentOnionWebApi.Infrastructure.Interfaces;
+using StudentOnionWebApi.InfrastructureService.Context;
 using StudentOnionWebApi.InfrastructureService.Repositories;
 
 namespace StudentOnionWebApi.DependencyInjection.Modules
@@ -13,7 +16,18 @@ namespace StudentOnionWebApi.DependencyInjection.Modules
     {
         public void Register(IUnityContainer container)
         {
-            container.RegisterType<IUniversity, FakeRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IUniversity, UniversityRepository>(new ContainerControlledLifetimeManager());
+
+            var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyContext"].ConnectionString);
+
+            using (var context = new MyContext(optionsBuilder.Options))
+            {
+                context.Database.EnsureCreated();
+            }
+
+            container.RegisterType<MyContext>(new HierarchicalLifetimeManager(),
+                new InjectionConstructor(optionsBuilder.Options));
         }
     }
 }

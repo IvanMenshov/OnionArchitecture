@@ -49,7 +49,7 @@ namespace StudentOnionWebApi.Controllers
         {
             _domainUniversity.Delete(id);
 
-            return NotFound();
+            return Ok();
         }
     }
 }
