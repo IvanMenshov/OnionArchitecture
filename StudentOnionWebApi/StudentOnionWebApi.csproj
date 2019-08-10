@@ -193,6 +193,8 @@
     <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\UniversityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validators\StudentModelValidator.cs" />
+    <Compile Include="Validators\UniversityModelValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
