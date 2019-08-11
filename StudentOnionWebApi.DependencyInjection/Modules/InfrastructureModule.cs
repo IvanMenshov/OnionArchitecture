@@ -16,18 +16,15 @@ namespace StudentOnionWebApi.DependencyInjection.Modules
     {
         public void Register(IUnityContainer container)
         {
-            container.RegisterType<IUniversity, UniversityRepository>(new ContainerControlledLifetimeManager());
-
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyContext"].ConnectionString);
 
-            using (var context = new MyContext(optionsBuilder.Options))
-            {
-                context.Database.EnsureCreated();
-            }
+            using (var context = new MyContext(optionsBuilder.Options)) context.Database.EnsureCreated();
+            
 
             container.RegisterType<MyContext>(new HierarchicalLifetimeManager(),
                 new InjectionConstructor(optionsBuilder.Options));
+            container.RegisterType<IUniversity, UniversityRepository>(new ContainerControlledLifetimeManager());
         }
     }
 }

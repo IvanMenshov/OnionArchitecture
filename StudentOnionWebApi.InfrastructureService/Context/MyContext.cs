@@ -13,13 +13,12 @@ namespace StudentOnionWebApi.InfrastructureService.Context
     {
         public virtual DbSet<University> Universities { get; set; }
 
-        public MyContext(DbContextOptions<MyContext> options) : base(options)
+        public MyContext(DbContextOptions options) : base(options)
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        protected override void OnModelCreating(ModelBuilder modelBuilder) =>
             base.OnModelCreating(modelBuilder.ApplyConfiguration(new UniversityConfigurtion()));
-        }
+
     }
 }

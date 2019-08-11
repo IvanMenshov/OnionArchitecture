@@ -25,17 +25,7 @@ namespace StudentOnionWebApi.InfrastructureService.Repositories
 
         public University GetById(int id)
         {
-            var universitities = _context.Universities;
-
-            foreach (var university in universitities)
-            {
-                if (university != null && university.UniversityId == id)
-                {
-                    return university;
-                }
-            }
-
-            return default(University);
+            return _context.Universities.FirstOrDefault(_ => _.UniversityId == id);
         }
 
         public void Create(int id, string name)
@@ -56,8 +46,13 @@ namespace StudentOnionWebApi.InfrastructureService.Repositories
 
         public void Delete(int id)
         {
-            _context.Universities.Remove(_context.Universities.FirstOrDefault(_ => _.UniversityId == id));
-            _context.SaveChanges();
+            var delete = _context.Universities.FirstOrDefault(_ => _.UniversityId == id);
+
+            if (delete != null)
+            {
+                _context.Universities.Remove(delete);
+                _context.SaveChanges();
+            }
         }
     }
 }
