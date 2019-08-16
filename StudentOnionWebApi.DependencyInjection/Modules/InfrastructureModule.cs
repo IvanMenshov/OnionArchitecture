@@ -25,6 +25,9 @@ namespace StudentOnionWebApi.DependencyInjection.Modules
             container.RegisterType<MyContext>(new HierarchicalLifetimeManager(),
                 new InjectionConstructor(optionsBuilder.Options));
             container.RegisterType<IUniversity, UniversityRepository>(new ContainerControlledLifetimeManager());
+
+            container.RegisterType<ILog, LogRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IException, ExceptionRepository>(new ContainerControlledLifetimeManager());
         }
     }
 }

@@ -14,6 +14,8 @@ namespace StudentOnionWebApi.DependencyInjection.Modules
         public void Register(IUnityContainer container)
         {
             container.RegisterType<IDomainUniversity, UniversitiesService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IDomainLog, LogService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IDomainException, ExceptionService>(new ContainerControlledLifetimeManager());
         }
     }
 }

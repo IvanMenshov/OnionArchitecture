@@ -12,13 +12,17 @@ namespace StudentOnionWebApi.InfrastructureService.Context
     public class MyContext : DbContext
     {
         public virtual DbSet<University> Universities { get; set; }
+        public virtual DbSet<RequestLog> RequestLogs { get; set; }
+        public virtual DbSet<ExceptionLog> ExceptionLogs { get; set; }
 
         public MyContext(DbContextOptions options) : base(options)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) =>
-            base.OnModelCreating(modelBuilder.ApplyConfiguration(new UniversityConfigurtion()));
+            base.OnModelCreating(modelBuilder.ApplyConfiguration(new UniversityConfigurtion())
+                .ApplyConfiguration(new LogConfiguration())
+                .ApplyConfiguration(new ExceptionConfiguration()));
 
     }
 }

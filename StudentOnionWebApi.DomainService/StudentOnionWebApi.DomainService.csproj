@@ -44,6 +44,8 @@
     <Compile Include="Mappers\InfrastructureToDomainStudentMapper.cs" />
     <Compile Include="Mappers\InfrastructureToDomainUniversityMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ExceptionService.cs" />
+    <Compile Include="Service\LogService.cs" />
     <Compile Include="Service\UniversitiesService.cs" />
   </ItemGroup>
   <ItemGroup>

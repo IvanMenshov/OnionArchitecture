@@ -5,12 +5,14 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using StudentOnionWebApi.Domain.Interfaces;
+using StudentOnionWebApi.Filters;
 using StudentOnionWebApi.Mappers;
 using StudentOnionWebApi.Models;
 
 namespace StudentOnionWebApi.Controllers
 {
     [RoutePrefix("university")]
+    [ActionFilter, ExceptionFilter]
     public class UniversityController : ApiController
     {
         private readonly IDomainUniversity _domainUniversity;

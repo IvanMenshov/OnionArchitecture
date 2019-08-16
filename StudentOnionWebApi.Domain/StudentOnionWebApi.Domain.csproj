@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDomainException.cs" />
+    <Compile Include="Interfaces\IDomainLog.cs" />
     <Compile Include="Interfaces\IDomainStudent.cs" />
     <Compile Include="Interfaces\IDomainUniversity.cs" />
+    <Compile Include="Models\DomainException.cs" />
+    <Compile Include="Models\DomainLog.cs" />
     <Compile Include="Models\DomainStudent.cs" />
     <Compile Include="Models\DomainUniversity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

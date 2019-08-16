@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IException.cs" />
+    <Compile Include="Interfaces\ILog.cs" />
     <Compile Include="Interfaces\IStudent.cs" />
     <Compile Include="Interfaces\IUniversity.cs" />
+    <Compile Include="Models\ExceptionLog.cs" />
+    <Compile Include="Models\RequestLog.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\University.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
