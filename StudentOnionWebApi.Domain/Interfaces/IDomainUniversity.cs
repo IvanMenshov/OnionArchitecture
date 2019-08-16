@@ -12,7 +12,6 @@ namespace StudentOnionWebApi.Domain.Interfaces
         IList<DomainUniversity> GetAll();
         DomainUniversity GetById(int id);
         void Create(int id, string name);
-        void CreateStudent(int? domainUniversityId, int domainStudentId, string name, string surname);
         void Delete(int id);
     }
 }

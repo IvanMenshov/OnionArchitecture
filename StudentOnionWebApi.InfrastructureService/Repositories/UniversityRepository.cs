@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StudentOnionWebApi.Infrastructure.Interfaces;
 using StudentOnionWebApi.Infrastructure.Models;
 using StudentOnionWebApi.InfrastructureService.Context;
@@ -37,11 +35,6 @@ namespace StudentOnionWebApi.InfrastructureService.Repositories
             });
 
             _context.SaveChanges();
-        }
-
-        public void CreateStudent(int? universityId, int studentId, string name, string surname)
-        {
-            throw new NotImplementedException();
         }
 
         public void Delete(int id)

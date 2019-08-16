@@ -38,10 +38,6 @@ namespace StudentOnionWebApi.DomainService.Service
             _university.Create(id, name);
         }
 
-        public void CreateStudent(int? domainUniversityId, int domainStudentId, string name, string surname)
-        {
-            _university.CreateStudent(domainUniversityId, domainStudentId, name, surname);
-        }
 
         public void Delete(int id)
         {
