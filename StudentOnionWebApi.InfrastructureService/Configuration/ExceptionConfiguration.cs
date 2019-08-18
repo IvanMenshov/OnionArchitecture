@@ -14,7 +14,7 @@ namespace StudentOnionWebApi.InfrastructureService.Configuration
         public void Configure(EntityTypeBuilder<ExceptionLog> builder)
         {
             builder.ToTable("ExceptionLogs");
-            builder.HasKey(_ => _.ExceptionId);
+            builder.HasKey(_ => _.Id);
         }
     }
 }

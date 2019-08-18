@@ -8,7 +8,7 @@ namespace StudentOnionWebApi.Infrastructure.Models
 {
     public class ExceptionLog
     {
-        public int ExceptionId { get; set; }
+        public int Id { get; set; }
         public string ExceptionName { get; set; }
     }
 }

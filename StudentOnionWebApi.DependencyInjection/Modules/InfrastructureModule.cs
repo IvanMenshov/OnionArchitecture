@@ -19,8 +19,9 @@ namespace StudentOnionWebApi.DependencyInjection.Modules
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyContext"].ConnectionString);
 
-            using (var context = new MyContext(optionsBuilder.Options)) context.Database.EnsureCreated();
-            
+            using (var context = new MyContext(optionsBuilder.Options))
+                context.Database.EnsureCreated();
+
 
             container.RegisterType<MyContext>(new HierarchicalLifetimeManager(),
                 new InjectionConstructor(optionsBuilder.Options));

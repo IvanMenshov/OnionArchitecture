@@ -19,10 +19,11 @@ namespace StudentOnionWebApi.InfrastructureService.Context
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) =>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             base.OnModelCreating(modelBuilder.ApplyConfiguration(new UniversityConfigurtion())
                 .ApplyConfiguration(new LogConfiguration())
-                .ApplyConfiguration(new ExceptionConfiguration()));
-
+                .ApplyConfiguration(new UniversityConfigurtion()));
+        }
     }
 }
