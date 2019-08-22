@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using StudentOnionWebApi.Infrastructure.Interfaces;
 using StudentOnionWebApi.Infrastructure.Models;
 using StudentOnionWebApi.InfrastructureService.Context;
@@ -18,12 +19,12 @@ namespace StudentOnionWebApi.InfrastructureService.Repositories
 
         public IList<University> GetAll()
         {
-            return _context.Universities.ToList();
+            return _context.Universities.Include(_ => _.Students).ToList();
         }
 
         public University GetById(int id)
         {
-            return _context.Universities.Find(id);
+            return _context.Universities.Include(_ => _.Students).FirstOrDefault(_ => _.UniversityId == id);
         }
 
         public void Create(int id, string name)
